@@ -10,8 +10,6 @@ import formula1.modelos.Escuderia;
 import formula1.modelos.Piloto;
 import formula1.vistas.VistaHome;
 
-
-
 /**
  *
  * @author 505
@@ -23,12 +21,14 @@ public class Formula1 {
      */
     public static void main(String[] args) {
         
-        Escuderia escuderia= new Escuderia();
-        Piloto piloto = new Piloto();
-        VistaHome vistaHome = new VistaHome();
-        vistaHome.setVisible(true);
+    VistaHome vistahome = new VistaHome();
+    vistahome.setVisible(true);
+    Escuderia escuderia = new Escuderia();
+    Piloto piloto = new Piloto();
+    
+    ControladorHome controladorHome = new ControladorHome(vistahome,escuderia,piloto);
         
-        ControladorHome controladorHome = new ControladorHome(vistaHome,escuderia,piloto);
+        
         
     }
     
