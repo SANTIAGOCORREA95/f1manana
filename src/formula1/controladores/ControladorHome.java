@@ -10,6 +10,7 @@ import formula1.modelos.Escuderia;
 import formula1.modelos.Piloto;
 import formula1.vistas.VistaHome;
 import formula1.vistas.VistaIngreso;
+import formula1.vistas.VistaSalida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,15 +39,22 @@ public class ControladorHome implements ActionListener {
         String id = vistahome.caja1.getText();
         
         if(consultasEscuderia.buscarEscuderia(id)!= null){
-        
+            
+            VistaSalida vistaSalida = new VistaSalida();
+            vistahome.setVisible(false);
+            vistaSalida.setVisible(true);
+            
+            ControladorSalida controladorSalida = new ControladorSalida(vistaSalida,escuderia,piloto);
+            
     }else{
         
             VistaIngreso vistaIngreso = new VistaIngreso();
             vistahome.setVisible(false);
             vistaIngreso.setVisible(true);
+            
+            ControladorIngreso controladorIngreso = new ControladorIngreso(vistaIngreso,escuderia,piloto);
     }
-    
-    
+       
     }
 }
  

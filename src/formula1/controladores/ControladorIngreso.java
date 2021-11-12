@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,6 +54,20 @@ public class ControladorIngreso implements ActionListener {
         Date entrada = new Date();
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String fechaEntrada = formato.format(entrada);
+        piloto.setFechaIn(fechaEntrada);
+        
+        piloto.setIdEscuderia(vistaingreso.CajaIdEscuderia.getText());
+        
+        if(consultasEscuderia.registrarEscuderia(escuderia)&&consultasPilotos.registrarPiloto(piloto)){
+            
+            JOptionPane.showMessageDialog(null, "Exito agregando los datos");
+        
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Error agregando los datos");
+        }
+        
+        
     
     }
         
